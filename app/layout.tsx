@@ -3,6 +3,7 @@ import {  Roboto } from "next/font/google";
 import "./globals.css";
 import {Providers} from "./providers";
 import Navigations from './../stories/navigation/Navigations'
+import NavFooter from "@/stories/navigation/NavFooter";
 const roboto = Roboto({ weight: ["100","300","500","700"] , subsets: ['latin']});
 
 export const metadata: Metadata = {
@@ -21,6 +22,7 @@ export default function RootLayout({
       <Providers>
         <Navigations />
           {children}
+          <NavFooter />
         </Providers></body>
     </html>
   );

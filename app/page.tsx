@@ -15,9 +15,13 @@ export const metadata: Metadata = {
 }
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <ThemeSwitcher />
-      <Button color="primary" variant="solid">Solid</Button>
+    <main className="flex min-h-full flex-col items-center justify-between p-24">
+
+      
+      <h1 className="text-xl">Hi This is new Kisetsu Tech</h1>
+      <p>Built in Next Ui and Tailwind</p>
+
+
     </main>
   );
 }

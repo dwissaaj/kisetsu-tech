@@ -1,54 +1,67 @@
 'use client'
-import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem,Input, Navbar, NavbarBrand, NavbarMenuToggle, NavbarContent, NavbarMenu, NavbarMenuItem, NavbarItem, Link, Button } from "@nextui-org/react";
-import { useEffect, useState } from "react";
-import { PersonIcon } from "@radix-ui/react-icons";
+import MdSubMenuAccount from "../menu/submenu/medium/MdSubMenuAccount";
+import MdSubMenuData from "../menu/submenu/medium/MdSubMenuData";
+import MdSubMenuDesign from "../menu/submenu/medium/MdSubMenuDesign";
+import MdSubMenuContact from "../menu/submenu/medium/MdSubMenuContact";
 import MenuBurger from "../menu/MenuBurger";
+import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarContent, NavbarMenu, NavbarMenuItem, NavbarItem, Link } from "@nextui-org/react";
+import {  useState } from "react";
 import { ThemeSwitcher } from "@/app/components/ThemeSwitcher";
+import { KisetsuLogo } from "@/app/components/brand/KisetsuLogo";
+import InputUI from "../input/Input";
 export default function Navigations() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
+    <Navbar isBordered className="py-4" onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="md:hidden"
         />
         <NavbarBrand>
-    
-          <p className="font-bold text-inherit">KISETSU</p>
+          <div className="hidden md:flex  space-x-4">
+          <KisetsuLogo  />
+          </div>
+          <Link href="/" className="font-bold text-inherit">
+          KISETSU
+          </Link>
+      
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+      <NavbarContent className="md:flex gap-4 " justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Features
-          </Link>
+          <InputUI />
         </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page">
-            Customers
-          </Link>
+        <div className="hidden md:flex gap-3">
+        
+        <NavbarItem>
+          <MdSubMenuDesign />
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Integrations
-          </Link>
+          <MdSubMenuContact />
         </NavbarItem>
+        </div>
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
+      <NavbarItem>
           <ThemeSwitcher />
         </NavbarItem>
+        <NavbarItem className="hidden md:flex">
+          <MdSubMenuAccount />
+        </NavbarItem>
+        <NavbarItem className="hidden md:flex">
+          <MdSubMenuData />
+        </NavbarItem>
+
       </NavbarContent>
       <NavbarMenu>
-         <MenuBurger />
+        <NavbarMenuItem>
+        <MenuBurger />
+        </NavbarMenuItem>
       </NavbarMenu>
      
     </Navbar>
