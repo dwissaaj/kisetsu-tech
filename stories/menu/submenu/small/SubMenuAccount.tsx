@@ -5,13 +5,13 @@ import { LogoutIcon } from "@/stories/icon/account/LogoutIcon";
 import { PersonIcon } from "@/stories/icon/account/PersonIcon";
 export default function SubMenuAccount() {
     return (
-        <Listbox aria-label="Listbox data"
+        <Listbox disabledKeys={["account"]} aria-label="Listbox data"
             variant="flat" color="primary" >
             <ListboxSection title="Your Privacy" showDivider>
-                <ListboxItem startContent={<PersonIcon className="size-2" />} href="" key="power bi">
+                <ListboxItem startContent={<PersonIcon className="size-2 lg:size-4" />} href="" key="account">
                     Your Account
                 </ListboxItem >
-                <ListboxItem startContent={<LanguageIcon className="size-2" />} href="" key="power bi">
+                <ListboxItem startContent={<LanguageIcon className="size-2 lg:size-4" />} href="" key="language">
                     <Select placeholder="English" value={"english"} defaultSelectedKeys={"english"} disabledKeys={["japan", "indonesia"]} label="Pick Language" key="secondary" variant="underlined" >
                         <SelectItem variant="flat" color="primary" key="english" value="english ">
                             English
@@ -27,7 +27,7 @@ export default function SubMenuAccount() {
                 </ListboxItem >
             </ListboxSection>
             <ListboxSection title="Connect" showDivider>
-                <ListboxItem description="Log Out" startContent={<LogoutIcon className="size-2" />} href="" color="danger" key="power bi">
+                <ListboxItem description="Log Out" startContent={<LogoutIcon className="size-2 lg:size-4" />} href="" color="danger" key="power bi">
                     Log Out
                 </ListboxItem >
             </ListboxSection>

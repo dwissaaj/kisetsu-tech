@@ -15,13 +15,13 @@ export default function MdSubMenuData() {
             <DropdownMenu color="primary" variant="light" aria-label="dropdown menu">
                 <DropdownSection title="Check My Analysis" showDivider>
         
-                    <DropdownItem startContent={<PowerBiIcon className="size-2" />} href="https://drive.google.com/file/d/1Kgyd9CT55lCdLJrsRgvY8GZqVB12-Ewh/view" key="power bi">
+                    <DropdownItem startContent={<PowerBiIcon className="size-2 lg:size-4" />} href="https://drive.google.com/file/d/1Kgyd9CT55lCdLJrsRgvY8GZqVB12-Ewh/view" key="power bi">
                         Power BI
                     </DropdownItem >
-                    <DropdownItem startContent={<TableauIcon className="size-2" />} href="https://public.tableau.com/app/profile/dwi.setyo.aji/vizzes" key="tableau">
+                    <DropdownItem startContent={<TableauIcon className="size-2 lg:size-4" />} href="https://public.tableau.com/app/profile/dwi.setyo.aji/vizzes" key="tableau">
                         Tableau
                     </DropdownItem >
-                    <DropdownItem startContent={<SnaIcon className="size-2" />} href="https://docs.google.com/spreadsheets/u/2/d/1EIFTOB16fVdaWIMFQNBc1-zjeqLu7ojd/edit?usp=sharing&ouid=100367702123448522266&rtpof=true&sd=true" key="social network analysis">
+                    <DropdownItem startContent={<SnaIcon className="size-2 lg:size-4" />} href="https://docs.google.com/spreadsheets/u/2/d/1EIFTOB16fVdaWIMFQNBc1-zjeqLu7ojd/edit?usp=sharing&ouid=100367702123448522266&rtpof=true&sd=true" key="social network analysis">
                         Social Network Analysis
                     </DropdownItem >
               

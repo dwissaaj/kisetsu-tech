@@ -15,7 +15,7 @@ export default function Navigations() {
 
 
   return (
-    <Navbar isBordered className="py-4" onMenuOpenChange={setIsMenuOpen}>
+    <Navbar maxWidth="2xl" isBordered className="py-4" onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
