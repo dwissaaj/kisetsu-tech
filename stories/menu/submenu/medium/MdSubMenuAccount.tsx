@@ -7,7 +7,7 @@ export default function MdSubMenuAccount() {
         <Dropdown>
             <DropdownTrigger>
                 <Button isIconOnly color="default" variant="ghost" aria-label="setting">
-                    <PersonIcon className="size-2 lg:size-4" />
+                    <PersonIcon className="size-4" />
                 </Button>
             </DropdownTrigger>
             <DropdownMenu color="primary" variant="light" aria-label="dropdown menu">
