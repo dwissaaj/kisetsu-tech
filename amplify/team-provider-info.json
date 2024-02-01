@@ -1,23 +1,15 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-kisetsusakura-dev-153803-authRole",
-      "UnauthRoleArn": "arn:aws:iam::730335327241:role/amplify-kisetsusakura-dev-153803-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::730335327241:role/amplify-kisetsusakura-dev-153803-authRole",
+      "AuthRoleName": "amplify-kisetsusakura-dev-164616-authRole",
+      "UnauthRoleArn": "arn:aws:iam::730335327241:role/amplify-kisetsusakura-dev-164616-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::730335327241:role/amplify-kisetsusakura-dev-164616-authRole",
       "Region": "ap-southeast-1",
-      "DeploymentBucketName": "amplify-kisetsusakura-dev-153803-deployment",
-      "UnauthRoleName": "amplify-kisetsusakura-dev-153803-unauthRole",
-      "StackName": "amplify-kisetsusakura-dev-153803",
-      "StackId": "arn:aws:cloudformation:ap-southeast-1:730335327241:stack/amplify-kisetsusakura-dev-153803/3791c6f0-c0dd-11ee-9f38-06a99e20747c",
-      "AmplifyAppId": "d2rnbwia972r0m"
-    },
-    "categories": {
-      "hosting": {
-        "amplifyhosting": {
-          "appId": "d2rnbwia972r0m",
-          "type": "cicd"
-        }
-      }
+      "DeploymentBucketName": "amplify-kisetsusakura-dev-164616-deployment",
+      "UnauthRoleName": "amplify-kisetsusakura-dev-164616-unauthRole",
+      "StackName": "amplify-kisetsusakura-dev-164616",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:730335327241:stack/amplify-kisetsusakura-dev-164616/bfb930a0-c0e6-11ee-adb2-0233e4209dc6",
+      "AmplifyAppId": "d1f8u9xa4k2d8n"
     }
   }
 }
