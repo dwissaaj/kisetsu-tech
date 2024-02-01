@@ -9,7 +9,7 @@ export default function MdSubMenuData() {
     <Dropdown>
             <DropdownTrigger>
                 <Button isIconOnly color="default" variant="ghost" aria-label="setting">
-                    <DataIcon className="size-6" />
+                    <DataIcon className="size-4" />
                 </Button>
             </DropdownTrigger>
             <DropdownMenu color="primary" variant="light" aria-label="dropdown menu">
