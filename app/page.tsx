@@ -1,8 +1,7 @@
-
-import { Metadata } from "next";
-import HomeTitle from "@/stories/home/homeTitle";
-import HomeGrid from "@/stories/home/HomeGrid";
-
+import Image from "next/image";
+import {Button} from "@nextui-org/react";
+ import { Metadata } from "next";
+import { ThemeSwitcher } from "./components/ThemeSwitcher";
 export const metadata: Metadata = {
   title: 'Sakura | Kisetsu | ',
   description: 'Kisetsu Tech Dwi Aji Personal Website',
@@ -12,14 +11,13 @@ export const metadata: Metadata = {
   authors: [{ name: 'Dwis Aji' }, { name: 'Dwis Aji', url: 'https://kisetsu.tech' }],
   creator: 'Dwis Aji',
   publisher: 'Dwis Aji',
-
+ 
 }
 export default function Home() {
-
   return (
-    <main className="flex flex-col items-center p-24 gap-4">
-      <HomeTitle />
-      <HomeGrid />
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <ThemeSwitcher />
+      <Button color="primary" variant="solid">Solid</Button>
     </main>
   );
 }
