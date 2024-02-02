@@ -17,6 +17,12 @@
           "appId": "d1i2lp108opssk",
           "type": "cicd"
         }
+      },
+      "auth": {
+        "kisetsusakura": {}
+      },
+      "api": {
+        "kisetsusakura": {}
       }
     }
   }
