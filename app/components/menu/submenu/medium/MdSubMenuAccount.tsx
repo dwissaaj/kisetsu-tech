@@ -1,7 +1,7 @@
 'use client'
 import { Dropdown, DropdownMenu, DropdownTrigger, DropdownItem, Button, DropdownSection } from "@nextui-org/react"
-import { PersonIcon } from "@/stories/icon/account/PersonIcon"
-import { LogoutIcon } from "@/stories/icon/account/LogoutIcon"
+import { PersonIcon } from "@/app/components/icon/account/PersonIcon"
+import { LogoutIcon } from "@/app/components/icon/account/LogoutIcon"
 export default function MdSubMenuAccount() {
     return (
         <Dropdown>

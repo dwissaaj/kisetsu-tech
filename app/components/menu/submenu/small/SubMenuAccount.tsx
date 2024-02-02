@@ -1,8 +1,8 @@
 'use client'
 import { ListboxSection, SelectItem, Select, Listbox, ListboxItem } from "@nextui-org/react";
-import { LanguageIcon } from "@/stories/icon/account/LanguageIcon";
-import { LogoutIcon } from "@/stories/icon/account/LogoutIcon";
-import { PersonIcon } from "@/stories/icon/account/PersonIcon";
+import { LanguageIcon } from "@/app/components/icon/account/LanguageIcon";
+import { LogoutIcon } from "@/app/components/icon/account/LogoutIcon";
+import { PersonIcon } from "@/app/components/icon/account/PersonIcon";
 export default function SubMenuAccount() {
     return (
         <Listbox disabledKeys={["account"]} aria-label="Listbox data"

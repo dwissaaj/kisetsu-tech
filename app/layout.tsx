@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import {  Roboto } from "next/font/google";
 import "./globals.css";
 import {Providers} from "./providers";
-import Navigations from './../stories/navigation/Navigations'
-import NavFooter from "@/stories/navigation/NavFooter";
+import Navigations from './components/navigation/Navigations'
+import NavFooter from "@/app/components/navigation/NavFooter";
 const roboto = Roboto({ weight: ["100","300","500","700"] , subsets: ['latin']});
 
 export const metadata: Metadata = {

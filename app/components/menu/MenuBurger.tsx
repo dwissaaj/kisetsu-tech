@@ -1,8 +1,8 @@
 import { NavbarMenuItem, Accordion, AccordionItem } from "@nextui-org/react";
-import { UilSetting } from "../icon/UilSettingIcon";
-import { PersonIcon } from "../icon/account/PersonIcon";
-import { DataIcon } from "../icon/DataIcon";
-import { ComponentIcon } from "../icon/ComponentIcon";
+import { UilSetting } from "@/app/components/icon/UilSettingIcon";
+import { PersonIcon } from "@/app/components/icon/account/PersonIcon";
+import { DataIcon } from "@/app/components/icon/DataIcon";
+import { ComponentIcon } from "@/app/components/icon/ComponentIcon";
 import SubMenuAccount from "./submenu/small/SubMenuAccount";
 import SubMenuData from "./submenu/small/SubMenuData";
 import SubMenuDesign from "./submenu/small/SubMenuDesign";

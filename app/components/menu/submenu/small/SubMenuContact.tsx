@@ -1,10 +1,10 @@
 import { Listbox, ListboxItem } from "@nextui-org/react";
-import { EmailIcon } from "@/stories/icon/contact/EmailIcon";
-import { InstagramIcon } from "@/stories/icon/contact/InstagramIcon";
-import { GithubIcon } from "@/stories/icon/contact/GithubIcon";
-import { LinkedinIcon } from "@/stories/icon/contact/LinkedinIcon";
-import { WaIcon } from "@/stories/icon/contact/WaIcon";
-import { FastworkIcon } from "@/stories/icon/contact/FastworkIcon";
+import { EmailIcon } from "@/app/components/icon/contact/EmailIcon";
+import { InstagramIcon } from "@/app/components/icon/contact/InstagramIcon";
+import { GithubIcon } from "@/app/components/icon/contact/GithubIcon";
+import { LinkedinIcon } from "@/app/components/icon/contact/LinkedinIcon";
+import { WaIcon } from "@/app/components/icon/contact/WaIcon";
+import { FastworkIcon } from "@/app/components/icon/contact/FastworkIcon";
 export default function SubMenuContact() {
     return (
         <Listbox aria-label="Listbox data"

@@ -1,14 +1,14 @@
 'use client'
-import MdSubMenuAccount from "../menu/submenu/medium/MdSubMenuAccount";
-import MdSubMenuData from "../menu/submenu/medium/MdSubMenuData";
-import MdSubMenuDesign from "../menu/submenu/medium/MdSubMenuDesign";
-import MdSubMenuContact from "../menu/submenu/medium/MdSubMenuContact";
-import MenuBurger from "../menu/MenuBurger";
+import MdSubMenuAccount from "@/app/components/menu/submenu/medium/MdSubMenuAccount";
+import MdSubMenuData from "@/app/components/menu/submenu/medium/MdSubMenuData";
+import MdSubMenuDesign from "@/app/components/menu/submenu/medium/MdSubMenuDesign";
+import MdSubMenuContact from "@/app/components/menu/submenu/medium/MdSubMenuContact";
+import MenuBurger from "@/app/components/menu/MenuBurger";
 import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarContent, NavbarMenu, NavbarMenuItem, NavbarItem, Link } from "@nextui-org/react";
 import {  useState } from "react";
 import { ThemeSwitcher } from "@/app/components/ThemeSwitcher";
 import { KisetsuLogo } from "@/app/components/brand/KisetsuLogo";
-import InputUI from "../input/Input";
+import InputUI from "@/app/components/input/Input";
 export default function Navigations() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 

@@ -1,7 +1,7 @@
 'use client'
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem,Input, Navbar, NavbarBrand, NavbarMenuToggle, NavbarContent, NavbarMenu, NavbarMenuItem, NavbarItem, Link, Button } from "@nextui-org/react";
 import { KisetsuLogo } from "../brand/KisetsuLogo"
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ThemeSwitcher } from "../ThemeSwitcher";
 import { PersonIcon } from "@radix-ui/react-icons";
 

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Dropdown, DropdownMenu, DropdownTrigger, DropdownItem, Button, DropdownSection } from "@nextui-org/react"
-import { DataIcon } from '@/stories/icon/DataIcon'
-import { SnaIcon } from "@/stories/icon/data/SnaIcon";
-import { PowerBiIcon } from "@/stories/icon/data/PowerBiIcon";
-import { TableauIcon } from "@/stories/icon/data/TableauIcon";
+import { DataIcon } from '@/app/components/icon/DataIcon'
+import { SnaIcon } from "@/app/components/icon/data/SnaIcon";
+import { PowerBiIcon } from "@/app/components/icon/data/PowerBiIcon";
+import { TableauIcon } from "@/app/components/icon/data/TableauIcon";
 export default function MdSubMenuData() {
   return (
     <Dropdown>

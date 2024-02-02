@@ -1,9 +1,9 @@
 import React from 'react'
 import { Dropdown, DropdownMenu, DropdownTrigger, DropdownItem, Button, DropdownSection } from "@nextui-org/react"
-import { FigmaIcon } from "@/stories/icon/design/FigmaIcon";
-import { CameraIcon } from "@/stories/icon/design/CameraIcon";
-import { CanvaIcon } from "@/stories/icon/design/CanvaIcon";
-import { CatalogIcon } from "@/stories/icon/design/CatalogIcon";
+import { FigmaIcon } from "@/app/components/icon/design/FigmaIcon";
+import { CameraIcon } from "@/app/components/icon/design/CameraIcon";
+import { CanvaIcon } from "@/app/components/icon/design/CanvaIcon";
+import { CatalogIcon } from "@/app/components/icon/design/CatalogIcon";
 
 export default function MdSubMenuDesign() {
    

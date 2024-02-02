@@ -1,10 +1,10 @@
 import React from 'react'
 import { Dropdown, DropdownMenu, DropdownTrigger, DropdownItem, Button, DropdownSection } from "@nextui-org/react"
-import { EmailIcon } from "@/stories/icon/contact/ContactsIcon"
-import { WaIcon } from '@/stories/icon/contact/WaIcon';
-import { InstagramIcon } from '@/stories/icon/contact/InstagramIcon';
-import  {LinkedinIcon} from '@/stories/icon/contact/LinkedinIcon'
-import { GithubIcon } from '@/stories/icon/contact/GithubIcon';
+import { EmailIcon } from "@/app/components/icon/contact/ContactsIcon"
+import { WaIcon } from '@/app/components/icon/contact/WaIcon';
+import { InstagramIcon } from '@/app/components/icon/contact/InstagramIcon';
+import  {LinkedinIcon} from '@/app/components/icon/contact/LinkedinIcon'
+import { GithubIcon } from '@/app/components/icon/contact/GithubIcon';
 export default function  MdSubMenuContact() {
    
   return (

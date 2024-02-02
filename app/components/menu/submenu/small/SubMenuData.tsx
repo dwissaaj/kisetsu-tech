@@ -1,7 +1,7 @@
 import { Listbox, ListboxItem } from "@nextui-org/react";
-import { SnaIcon } from "@/stories/icon/data/SnaIcon";
-import { PowerBiIcon } from "@/stories/icon/data/PowerBiIcon";
-import { TableauIcon } from "@/stories/icon/data/TableauIcon";
+import { SnaIcon } from "@/app/components/icon/data/SnaIcon";
+import { PowerBiIcon } from "@/app/components/icon/data/PowerBiIcon";
+import { TableauIcon } from "@/app/components/icon/data/TableauIcon";
 export default function SubMenuData() {
     return (
         <Listbox aria-label="Listbox data"
