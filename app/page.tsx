@@ -1,7 +1,15 @@
-import Image from "next/image";
-import {Button} from "@nextui-org/react";
  import { Metadata } from "next";
-import { ThemeSwitcher } from "./components/ThemeSwitcher";
+import { Amplify } from 'aws-amplify';
+import config from '../src/amplifyconfiguration.json';
+Amplify.configure({
+  Auth: {
+    Cognito: {
+      userPoolId: 'ap-southeast-1_PUfKRleGU',
+      userPoolClientId: 'rs94l4tetkatan1pgc24sb25o',
+    
+    },
+  }
+});
 export const metadata: Metadata = {
   title: 'Sakura | Kisetsu | ',
   description: 'Kisetsu Tech Dwi Aji Personal Website',
@@ -13,11 +21,10 @@ export const metadata: Metadata = {
   publisher: 'Dwis Aji',
  
 }
-export default function Home() {
+export default function App() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <ThemeSwitcher />
-      <Button color="primary" variant="solid">Solid</Button>
+
     </main>
   );
 }
