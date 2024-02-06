@@ -1,8 +1,12 @@
-import { Register } from '@/app/components/(user)/Register';
+
 import SignUpComponent from '@/app/components/(user)/SignUpComponent'
-import { Registering } from '@/app/components/(user)/registering';
 import { signUp } from 'aws-amplify/auth';
 import { Metadata } from 'next'
+
+import { Amplify } from 'aws-amplify';
+
+import { RegisterServer } from '@/app/components/(user)/RegisterServer';
+
 export const metadata: Metadata = {
     title: 'Sign Up | Kisetsu ',
     description: 'Kisetsu Tech Dwi Aji Personal Website',
@@ -12,32 +16,44 @@ export const metadata: Metadata = {
     authors: [{ name: 'Dwis Aji' }, { name: 'Dwis Aji', url: 'https://kisetsu.tech' }],
     creator: 'Dwis Aji',
     publisher: 'Dwis Aji',
-   
+    
+  
   }
 
-export default function SignupPage() {
+type SignUpParameters = {
+    username: string;
+    password: string;
+    email: string;
+    phone_number: string;
+  };
+  async function handleSignUp({
+    username,
+    password,
+    email,
+    phone_number
+  }: SignUpParameters ) {
+    'use server';
+    try {
+      const { isSignUpComplete, userId, nextStep } = await signUp({
+        username,
+        password,
+        
+      });
+      console.log(username,password)
+        console.log(email,phone_number)
+      } catch (error) {
+        console.log('error signing up:', error);
+      }
+     
+} 
+
+export default function Page() {
   
   
   
   
   return (
-    <Register />
+    <RegisterServer />
     )
 }
 
-
-// <SignUp email={isSignUp.email} password={isSignUp.password}
-//       isEmailError={isSignUp.isEmailError} isPasswordError={isSignUp.isPasswordError} 
-//       emailErrorMessage={isSignUp.emailErrorMessage} passwordErrorMessage={isSignUp.passwordErrorMessage}
-//       handleSignUp={handleSignUp} />
-
-
-// const [isSignUp, setSignUp] = useState({
-//   email: '',
-//   password : '',
-//   isEmailError: false,
-//   isPasswordError: false,
-//   emailErrorMessage: '',
-//   passwordErrorMessage: '',
-//   handleSignUp : handleSignUp()
-// })

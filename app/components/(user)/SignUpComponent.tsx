@@ -4,20 +4,42 @@ import { Input, Button } from '@nextui-org/react'
 import { EmailIcon } from '../icon/EmailIcon'
 import { PasswordIcon } from '../icon/PasswordIcon';
 import { PasswordHideIcon } from '../icon/PasswordHideIcon';
-import { Registering } from './registering';
+import { PhoneIcon } from '../icon/PhoneIcon';
+
 export type CardState = {
   isEmailError: boolean
   isPasswordError: boolean
   emailErrorMessage: string
   passwordErrorMessage: string
-  handleSignUp: MouseEventHandler
   email: string
   password: string
 }
-export default function SignUpComponent({email, password,isEmailError,isPasswordError,emailErrorMessage
-,passwordErrorMessage,handleSignUp}: CardState  ) {
+type Regis = {
+  handleSignUp: () => void
+  isEmailError: boolean
+  isPasswordError: boolean
+  emailErrorMessage: string
+  passwordErrorMessage: string
+  isPhoneNumberError: boolean
+  phoneNumberMessage: string
+}
+export default function SignUpComponent({handleSignUp,isPhoneNumberError,phoneNumberMessage, isEmailError, isPasswordError, emailErrorMessage, passwordErrorMessage} : Regis) {
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
+  const [isData, setIsData] = useState({
+    username : '',
+    password: '',
+    phone_number
+: ''
+  })
+  const handleChange = (e : React.ChangeEvent<HTMLInputElement>) => {
+    const {name, value} = e.target
+    setIsData((prev) => ({
+      ...prev,
+      [name]: value
+    }))
+    console.log(isData)
+  }
   return (
 
     <div className='p-4 mt:2 w-full flex flex-col items-center gap-4 justify-center'>
@@ -26,26 +48,48 @@ export default function SignUpComponent({email, password,isEmailError,isPassword
         <p>To prevent stealing content you need an Accountti see my Data Visualization, Graphic Design, and UI/UX</p>
       </div>
       <div className='max-w-sm -full md:w-1/2 p-8 border-2 border-primary-500 rounded-lg shadow-lg shadow-secondary-400'>
-        <div className='flex flex-col gap-8'>
-          <Input
+        <div className='flex flex-col gap-4'>
+        <Input
             type="email"
-            value={email}
-            label="Email"
+            name='username'
+            description='Add Your Email'
+            onChange={handleChange}
+            value={isData.username}
+            label="Your Majesty Username"
             variant="bordered"
             endContent={<EmailIcon className="size-4" />}
-            placeholder='Your Magesty Email'
             labelPlacement="outside"
             isInvalid={isEmailError}
             isRequired={true}
             errorMessage={emailErrorMessage}
             className="max-w-xs"
+            
+          />
+        
+         <Input
+            type="tel"
+            onChange={handleChange}
+            name='phone_number'
+            value={isData.phone_number}
+            description='Your Phone Number'
+            label="Your Phone"
+            variant="bordered"
+            endContent={<PhoneIcon className="size-4" />}
+            labelPlacement="outside"
+            isInvalid={isPhoneNumberError}
+            isRequired={true}
+            errorMessage={phoneNumberMessage}
+            className="max-w-xs"
+            
           />
           <Input
             type={isVisible ? "text" : "password"}
-            value={password}
-            label="Password"
+            onChange={handleChange}
+            value={isData.password}
+            name='password'
+            description='Minimal 8 Digit'
             variant="bordered"
-            placeholder='8 Digit Pass'
+            label="Your Password"
             labelPlacement="outside"
             isInvalid={isPasswordError}
             isRequired={true}
@@ -61,7 +105,8 @@ export default function SignUpComponent({email, password,isEmailError,isPassword
               </button>
             }
           />
-           <Button onClick={handleSignUp}  color="primary">
+           <Button onClick={async () => {
+            await handleSignUp(isData)}}  color="primary">
         Sign Up
       </Button>
         </div>

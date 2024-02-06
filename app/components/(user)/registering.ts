@@ -1,21 +1,18 @@
 'use server'
 import { signUp } from 'aws-amplify/auth';
-type SignUpParameters = {
-    username: string;
-    password: string;
+async function handleSignUp(username: string, password:string) {
+  'use server';
+  try {
+      const { isSignUpComplete, userId, nextStep } = await signUp({
+        username,
+        password,
+  
+      });
 
-  };
-export async function Registering({username,password}: SignUpParameters) {
-    try{
-        const { isSignUpComplete, userId, nextStep } = await signUp({
-            username,
-          password
-        })
-        console.log('Success for SignUp')
-        return { isSignUpComplete, userId, nextStep}
-      }
-      
-      catch(error) {
-        console.log(error)
-      }
-}
+      console.log(userId);
+    } catch (error) {
+      console.log('error signing up:', error);
+      return error
+    }
+   
+} 
