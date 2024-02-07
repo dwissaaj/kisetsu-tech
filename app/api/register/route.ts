@@ -1,24 +1,45 @@
+'use server'
 import { signUp } from "@aws-amplify/auth";
+import { Amplify } from "aws-amplify";
+import config from '../../../src/amplifyconfiguration.json'
 import { NextResponse } from "next/server";
-import config from '../../../src/amplifyconfiguration.json';
-import { Amplify } from 'aws-amplify';
-Amplify.configure(config);
-export async function POST(username,password) {
+import { user } from "@nextui-org/react";
+Amplify.configure(config)
+type SignUpParameters = {
+  username: string;
+  password: string;
+  email: string;
+  phone_number: string;
+};
+export async function POST({
+  username,
+  password,
+  email,
+  phone_number
+}: SignUpParameters) {
+  try {
+      const { isSignUpComplete, userId, nextStep  } = await signUp({
+          username,
+          password,
+          options: {
+              userAttributes: {
+                  email,
+                  phone_number // E.164 number convention
+                },
+        
+          }
 
-        try {
-            const { isSignUpComplete, userId, nextStep } = await signUp({
-                username,
-                password,
+      }
+      
+      );
+      let users = userId?.toString()
+      console.log({isSignUpComplete,userId,nextStep})
+      return Response.json({users})
+  } catch (error) {
+    return Response.json({statusCode: 500, message: 'Error'})
     
-            });
-            return userId
- 
-        } catch (error) {
-              console.log(error)
-              return 'failed'     
-            }
-            return 'failed'        
-    
-            return 'failed'     
-
+      
+      
+      
+  }
 }

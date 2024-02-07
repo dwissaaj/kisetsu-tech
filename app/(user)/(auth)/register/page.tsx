@@ -20,32 +20,7 @@ export const metadata: Metadata = {
   
   }
 
-type SignUpParameters = {
-    username: string;
-    password: string;
-    email: string;
-    phone_number: string;
-  };
-  async function handleSignUp({
-    username,
-    password,
-    email,
-    phone_number
-  }: SignUpParameters ) {
-    'use server';
-    try {
-      const { isSignUpComplete, userId, nextStep } = await signUp({
-        username,
-        password,
-        
-      });
-      console.log(username,password)
-        console.log(email,phone_number)
-      } catch (error) {
-        console.log('error signing up:', error);
-      }
-     
-} 
+
 
 export default function Page() {
   
