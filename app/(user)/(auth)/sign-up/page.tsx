@@ -3,6 +3,8 @@ import { SignUpClient } from './SignUpClient'
 import { signUp } from '@aws-amplify/auth'
 import config from '../../../../src/amplifyconfiguration.json'
 import { Amplify } from 'aws-amplify'
+import { redirect } from 'next/navigation'
+import { NextResponse } from 'next/server'
 Amplify.configure(config)
 type SignUpParameters = {
     username: string;
@@ -24,9 +26,11 @@ export default async function SignUp() {
         try {
             const {userId} = await signUp(rawFormData)
             console.log(userId)
-            return {userId}
+            if(userId) {
+                return redirect('/account')
+            }
         }
-        catch(error :any ) {
+        catch(error ) {
             console.log(error)
             return {
                 message: error['name'] as string,

@@ -4,6 +4,7 @@ import { Amplify } from "aws-amplify";
 import config from '../../src/amplifyconfiguration.json'
 import { NextResponse } from "next/server";
 import { user } from "@nextui-org/react";
+import { redirect } from "next/navigation";
 Amplify.configure(config)
 type SignUpParameters = {
   username: string;
@@ -34,9 +35,7 @@ export async function RegisterAccount({
     );
     console.log(userId)
     
-    if (userId) {
-      return NextResponse.redirect('account')
-    }
+    redirect('/account')
 
   } catch (error) {
     console.log(error)
