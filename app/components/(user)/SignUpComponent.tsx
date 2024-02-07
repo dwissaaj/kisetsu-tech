@@ -5,7 +5,7 @@ import { EmailIcon } from '../icon/EmailIcon'
 import { PasswordIcon } from '../icon/PasswordIcon';
 import { PasswordHideIcon } from '../icon/PasswordHideIcon';
 import { PhoneIcon } from '../icon/PhoneIcon';
-import {RegisterAccount } from '@/actions/registering'
+import {RegisterAccount } from '@/app/actions/registering'
  export type CardState = {
   isEmailError: boolean
   isPasswordError: boolean

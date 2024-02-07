@@ -1,7 +1,7 @@
 'use server'
 import { signUp } from "@aws-amplify/auth";
 import { Amplify } from "aws-amplify";
-import config from '../src/amplifyconfiguration.json'
+import config from '../../src/amplifyconfiguration.json'
 import { NextResponse } from "next/server";
 import { user } from "@nextui-org/react";
 Amplify.configure(config)
@@ -39,8 +39,11 @@ export async function RegisterAccount({
     }
 
   } catch (error) {
-
     console.log(error)
+    return{
+              message: error['name'] as string,
+              stating: true
+          }
 
 
 
