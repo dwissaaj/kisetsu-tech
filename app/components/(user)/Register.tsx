@@ -5,7 +5,6 @@ import { EmailIcon } from '../icon/EmailIcon'
 import { PasswordIcon } from '../icon/PasswordIcon';
 import { PasswordHideIcon } from '../icon/PasswordHideIcon';
 import { PhoneIcon } from '../icon/PhoneIcon';
-import {RegisterAccount } from '@/app/actions/registering'
  export type CardState = {
   isEmailError: boolean
   isPasswordError: boolean
@@ -14,17 +13,9 @@ import {RegisterAccount } from '@/app/actions/registering'
   email: string
   password: string
 }
-type Regis = {
 
-  isEmailError: boolean
-  isPasswordError: boolean
-  emailErrorMessage: string
-  passwordErrorMessage: string
-  isPhoneNumberError: boolean
-  phoneNumberMessage: string
-}
 // isPhoneNumberError,phoneNumberMessage, isEmailError, isPasswordError, emailErrorMessage, passwordErrorMessage
-export default function SignUpComponent() {
+export default function Register() {
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
   const [isData, setIsData] = useState({
@@ -50,7 +41,7 @@ export default function SignUpComponent() {
       </div>
       <div className='max-w-sm -full md:w-1/2 p-8 border-2 border-primary-500 rounded-lg shadow-lg shadow-secondary-400'>
         <div className='flex flex-col gap-4'>
-<form action={async () => await RegisterAccount(isData)}>
+<form>
 <Input
             type="email"
             name='username'

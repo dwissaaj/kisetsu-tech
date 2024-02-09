@@ -3,10 +3,10 @@ import { UilSetting } from "@/app/components/icon/UilSettingIcon";
 import { PersonIcon } from "@/app/components/icon/account/PersonIcon";
 import { DataIcon } from "@/app/components/icon/DataIcon";
 import { ComponentIcon } from "@/app/components/icon/ComponentIcon";
-import SubMenuAccount from "./submenu/small/SubMenuAccount";
-import SubMenuData from "./submenu/small/SubMenuData";
-import SubMenuDesign from "./submenu/small/SubMenuDesign";
-import SubMenuContact from "./submenu/small/SubMenuContact";
+import SubMenuAccount from "./small/SubMenuAccount";
+import SubMenuData from "./small/SubMenuData";
+import SubMenuDesign from "./small/SubMenuDesign";
+import SubMenuContact from "./small/SubMenuContact";
 export default function MenuBurger() {
     return (
         <>  

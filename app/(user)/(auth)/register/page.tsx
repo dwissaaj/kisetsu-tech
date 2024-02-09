@@ -1,11 +1,5 @@
-
-import SignUpComponent from '@/app/components/(user)/SignUpComponent'
-import { signUp } from 'aws-amplify/auth';
 import { Metadata } from 'next'
-
-import { Amplify } from 'aws-amplify';
-
-import { RegisterServer } from '@/app/components/(user)/RegisterServer';
+import Register from '@/app/components/(user)/Register';
 
 export const metadata: Metadata = {
     title: 'Sign Up | Kisetsu ',
@@ -20,15 +14,20 @@ export const metadata: Metadata = {
   
   }
 
+  async function createUser(url :string, { arg }: { arg: string }) {
+    await fetch(url, {
+      method: 'POST',
+      
+    })
+  }
 
+export default async function Page() {
+  
 
-export default function Page() {
-  
-  
   
   
   return (
-    <RegisterServer />
+    <Register />
     )
 }
 

@@ -1,15 +1,5 @@
  import { Metadata } from "next";
-import { Amplify } from 'aws-amplify';
-import config from '../src/amplifyconfiguration.json';
-Amplify.configure({
-  Auth: {
-    Cognito: {
-      userPoolId: 'ap-southeast-1_PUfKRleGU',
-      userPoolClientId: 'rs94l4tetkatan1pgc24sb25o',
-    
-    },
-  }
-});
+
 export const metadata: Metadata = {
   title: 'Sakura | Kisetsu | ',
   description: 'Kisetsu Tech Dwi Aji Personal Website',
