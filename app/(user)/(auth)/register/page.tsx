@@ -14,12 +14,7 @@ export const metadata: Metadata = {
   
   }
 
-  async function createUser(url :string, { arg }: { arg: string }) {
-    await fetch(url, {
-      method: 'POST',
-      
-    })
-  }
+
 
 export default async function Page() {
   

@@ -4,7 +4,7 @@ import "./globals.css";
 import { Providers } from "./lib/provider/providers";
 import Navigations from './components/nav/Navigations'
 import NavFooter from "@/app/components/nav/NavFooter";
-import ProvidersTanstack from "./lib/provider/query-provider";
+
 const roboto = Roboto({ weight: ["100", "300", "500", "700"], subsets: ['latin'] });
 
 export default function RootLayout({
@@ -15,13 +15,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <ProvidersTanstack>
+     
           <Providers>
             <Navigations />
             {children}
             <NavFooter />
           </Providers>
-        </ProvidersTanstack>
+       
       </body>
     </html>
   );
