@@ -86,7 +86,7 @@ export default function Register() {
               type="text"
               name='name'
               description='Your Name Majesty'
-              onChange={handleChange}
+              onChange={(e) => setName(e.target.value)}
               value={name}
               label="Your Majesty Name"
               variant="bordered"
@@ -103,7 +103,7 @@ export default function Register() {
               type="email"
               name='email'
               description='Your Email'
-              onChange={handleChange}
+              onChange={(e) => setEmail(e.target.value)}
               value={email}
               label="Your Majesty Email"
               variant="bordered"
@@ -120,7 +120,7 @@ export default function Register() {
 
             <Input
               type={isVisible ? "text" : "password"}
-              onChange={handleChange}
+              onChange={(e) => setPassword(e.target.value)}
               value={password}
               name='password'
               description='Minimal 8 Digit with Lowercase, a numeric and Symbol'
