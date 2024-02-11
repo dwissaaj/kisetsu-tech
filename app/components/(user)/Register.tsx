@@ -6,10 +6,11 @@ import { PasswordIcon } from '../icon/PasswordIcon';
 import { PasswordHideIcon } from '../icon/PasswordHideIcon';
 import { PhoneIcon } from '../icon/PhoneIcon';
 import { request } from 'graphql-request'
-import {account, ID} from '@/app/appwrite'
+import { account, ID } from '@/app/appwrite'
 import useSWR from 'swr'
 import axios from 'axios';
 import { redirect } from 'next/navigation';
+import { Schema, object, string, number, date, InferType, ValidationError } from 'yup';
 export type CardState = {
   isEmailError: boolean
   isPasswordError: boolean
@@ -18,22 +19,22 @@ export type CardState = {
   email: string
   password: string
 }
-type registerType = {
-  password: string
-  email: string
-}
-// isPhoneNumberError,phoneNumberMessage, isEmailError, isPasswordError, emailErrorMessage, passwordErrorMessage
+
+
 export default function Register() {
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
+
+  let registerSchema = object({
+    name: string().required(),
+    email: string().email().required(),
+    password: string().min(8).required()
+  })
   const [isData, setIsData] = useState({
     password: '',
     email: '',
     name: ''
   })
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
   const [isError, setIsError] = useState({
     isEmailError: false,
     isPasswordError: false,
@@ -42,35 +43,56 @@ export default function Register() {
     passwordErrorMessage: '',
     nameErrorMessage: ''
   })
-  
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
-    setIsData((prev) => ({
-      ...prev,
-      [name]: value
-    }))
+    setIsData({ ...isData, [name]: value })
     console.log(isData)
+
   }
-  
+
   const register = async () => {
     console.log('Button not clicked')
     try {
-      await account.create(ID.unique(),email, password, name )
-      console.log('Button clicked')
-      
+      const user = await registerSchema.validate(isData)
+      const isVal = await registerSchema.isValid(isData)
+      if (isVal == true) {
+        try {
+          const user = await account.create(ID.unique(), isData.email, isData.password, isData.name)
+          if(user) {
+            redirect('/account')
+          }
+
+        }
+        catch (error) {
+          console.log(error)
+          console.log(typeof (error))
+          setIsError((prev) => ({
+            ...prev,
+            isNameError: true,
+            nameErrorMessage: 'Something Wrong please check your data'
+          }))
+        }
+      }
     }
-    catch (error) {
-      console.log(error)
-      console.log(typeof(error))
-      setIsError((prev) => ({
-        ...prev,
-        isEmailError: true,
-        emailErrorMessage: 'Wrong Error'
-      }) )
+    catch (e: any) {
+      console.log(e)
+
+
+      if (e.path === 'password') {
+        setIsError({ ...isError, isPasswordError: true, passwordErrorMessage: e.message })
+      }
+      else if (e.path === 'email') {
+        setIsError({ ...isError, isEmailError: true, emailErrorMessage: e.message })
+      }
+      else if (e.path === 'name') {
+        setIsError({ ...isError, isNameError: true, nameErrorMessage: e.message })
+      }
     }
+
   }
-  const {data, error} = useSWR('register', register)
+
   return (
 
     <div className='p-4 mt:2 w-full flex flex-col items-center gap-4 justify-center'>
@@ -80,14 +102,14 @@ export default function Register() {
       </div>
       <div className='max-w-sm -full md:w-1/2 p-8 border-2 border-primary-500 rounded-lg shadow-lg shadow-secondary-400'>
         <div className='flex flex-col gap-4'>
-          
+
           <form >
-          {/* <Input
+            <Input
               type="text"
               name='name'
               description='Your Name Majesty'
               onChange={handleChange}
-              value={name}
+              value={isData.name}
               label="Your Majesty Name"
               variant="bordered"
               endContent={<EmailIcon className="size-4" />}
@@ -104,7 +126,7 @@ export default function Register() {
               name='email'
               description='Your Email'
               onChange={handleChange}
-              value={email}
+              value={isData.email}
               label="Your Majesty Email"
               variant="bordered"
               endContent={<EmailIcon className="size-4" />}
@@ -121,7 +143,7 @@ export default function Register() {
             <Input
               type={isVisible ? "text" : "password"}
               onChange={handleChange}
-              value={password}
+              value={isData.password}
               name='password'
               description='Minimal 8 Digit with Lowercase, a numeric and Symbol'
               variant="bordered"
@@ -133,36 +155,20 @@ export default function Register() {
 
               className="max-w-xs"
               endContent={
-                <button className="focus:outline-none" type="button" onClick={toggleVisibility}>
+                <Button className="focus:outline-none" type="button" onClick={toggleVisibility}>
                   {isVisible ? (
                     <PasswordIcon className="size-4" />
                   ) : (
                     <PasswordHideIcon className="size-4" />
                   )}
-                </button>
+                </Button>
               }
-            /> */}
-            <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-            <button onClick={() => register()} className='mt-4 w-full' color="primary">
+            />
+
+
+            <Button onClick={() => register()} className='mt-4 w-full' color="primary">
               Sign Up
-            </button>
+            </Button>
           </form>
         </div>
       </div>
