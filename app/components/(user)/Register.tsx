@@ -82,7 +82,7 @@ export default function Register() {
         <div className='flex flex-col gap-4'>
           
           <form >
-          <Input
+          {/* <Input
               type="text"
               name='name'
               description='Your Name Majesty'
@@ -141,10 +141,28 @@ export default function Register() {
                   )}
                 </button>
               }
-            />
-            <Button onClick={register} className='mt-4 w-full' color="primary">
+            /> */}
+            <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+            <button onClick={() => register()} className='mt-4 w-full' color="primary">
               Sign Up
-            </Button>
+            </button>
           </form>
         </div>
       </div>
