@@ -1,30 +1,20 @@
 'use client'
-import React, { MouseEventHandler, useState } from 'react'
+import React, { useState } from 'react'
 import { Input, Button } from '@nextui-org/react'
-import { EmailIcon } from '../icon/EmailIcon'
-import { PasswordIcon } from '../icon/PasswordIcon';
-import { PasswordHideIcon } from '../icon/PasswordHideIcon';
-import { PhoneIcon } from '../icon/PhoneIcon';
-import { request } from 'graphql-request'
+import { EmailIcon } from '../../../components/icon/EmailIcon'
+import { PasswordIcon } from '../../../components/icon/PasswordIcon';
+import { PasswordHideIcon } from '../../../components/icon/PasswordHideIcon';
 import { account, ID } from '@/app/appwrite'
-import useSWR from 'swr'
-import axios from 'axios';
-import { redirect } from 'next/navigation';
-import { Schema, object, string, number, date, InferType, ValidationError } from 'yup';
-export type CardState = {
-  isEmailError: boolean
-  isPasswordError: boolean
-  emailErrorMessage: string
-  passwordErrorMessage: string
-  email: string
-  password: string
-}
+import {  object, string } from 'yup';
+import { PersonIcon } from '../../../components/icon/account/PersonIcon';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 
-export default function Register() {
+export default function RegisterClient() {
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
-
+  const router = useRouter()
   let registerSchema = object({
     name: string().required(),
     email: string().email().required(),
@@ -41,7 +31,8 @@ export default function Register() {
     isNameError: false,
     emailErrorMessage: '',
     passwordErrorMessage: '',
-    nameErrorMessage: ''
+    nameErrorMessage: '',
+    isLoading: false
   })
 
 
@@ -53,32 +44,37 @@ export default function Register() {
   }
 
   const register = async () => {
-    console.log('Button not clicked')
+    console.log('Try to Register....')
+    
     try {
+      setIsError({...isError, isLoading: true})
       const user = await registerSchema.validate(isData)
       const isVal = await registerSchema.isValid(isData)
       if (isVal == true) {
         try {
           const user = await account.create(ID.unique(), isData.email, isData.password, isData.name)
           if(user) {
-            redirect('/account')
+            router.push('/account')
           }
 
         }
-        catch (error) {
+        catch (error: any) {
+          setIsError({...isError, isLoading: false})
           console.log(error)
-          console.log(typeof (error))
-          setIsError((prev) => ({
-            ...prev,
-            isNameError: true,
-            nameErrorMessage: 'Something Wrong please check your data'
-          }))
+          if(error.code === 409) {
+            setIsError((prev) => ({
+              ...prev,
+              isNameError: true,
+              nameErrorMessage: 'You Have an Account Please Login'
+            }))
+          }
+          
         }
       }
     }
     catch (e: any) {
       console.log(e)
-
+      setIsError({...isError, isLoading: false})
 
       if (e.path === 'password') {
         setIsError({ ...isError, isPasswordError: true, passwordErrorMessage: e.message })
@@ -90,6 +86,7 @@ export default function Register() {
         setIsError({ ...isError, isNameError: true, nameErrorMessage: e.message })
       }
     }
+   
 
   }
 
@@ -100,7 +97,7 @@ export default function Register() {
         <h1 className='text-2xl lg:text-5xl'>Register an Account</h1>
         <p>To prevent stealing content you need an Account see my Data Visualization, Graphic Design, and UI/UX. If you don't want this please email me.</p>
       </div>
-      <div className='max-w-sm -full md:w-1/2 p-8 border-2 border-primary-500 rounded-lg shadow-lg shadow-secondary-400'>
+      <div className='max-w-sm w-full md:w-1/2 p-8 border-2 border-primary-500 rounded-lg shadow-lg shadow-secondary-400'>
         <div className='flex flex-col gap-4'>
 
           <form >
@@ -112,7 +109,7 @@ export default function Register() {
               value={isData.name}
               label="Your Majesty Name"
               variant="bordered"
-              endContent={<EmailIcon className="size-4" />}
+              endContent={<PersonIcon className="size-4" />}
               labelPlacement="outside"
               isInvalid={isError.isNameError}
               errorMessage={isError.nameErrorMessage}
@@ -155,23 +152,27 @@ export default function Register() {
 
               className="max-w-xs"
               endContent={
-                <Button className="focus:outline-none" type="button" onClick={toggleVisibility}>
+                <button className="focus:outline-none" type="button" onClick={toggleVisibility}>
                   {isVisible ? (
-                    <PasswordIcon className="size-4" />
+                    <PasswordIcon className="size-4 text-default-400 pointer-events-none" />
                   ) : (
-                    <PasswordHideIcon className="size-4" />
+                    <PasswordHideIcon className="size-4 text-default-400 pointer-events-none" />
                   )}
-                </Button>
+                </button>
               }
             />
 
 
-            <Button onClick={() => register()} className='mt-4 w-full' color="primary">
+            <Button isLoading={isError.isLoading} onClick={() => register()} className='mt-4 w-full' color="primary">
               Sign Up
             </Button>
           </form>
+          <p>Already have an Account? <Link className='hover:text-secondary-500' href='/login'> Login Here</Link></p>
+         
         </div>
+        
       </div>
+     
     </div>
 
   )

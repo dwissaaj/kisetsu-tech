@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import Register from '@/app/components/(user)/Register';
+import RegisterClient from '@/app/(user)/(auth)/register/RegisterC';
 
 export const metadata: Metadata = {
     title: 'Sign Up | Kisetsu ',
@@ -22,7 +22,7 @@ export default async function Page() {
   
   
   return (
-    <Register />
+    <RegisterClient />
     )
 }
 
