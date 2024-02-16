@@ -19,14 +19,14 @@ export async function POST(request: Request){
         console.log(error)
     }
 }
-export async function GET(){
-    try {
-        const user = await account.get()
-        console.log(user)
-    return NextResponse.json({user})    
-    }
-    catch(error) {
-        console.log("Error at fetching account", error)
-        return NextResponse.json({status: 400},{statusText: 'Error Profile Fetching'})
-    }
-}
+// export async function GET(){
+//     try {
+//         const user = await account.get()
+//         console.log(user)
+//     return NextResponse.json({user})    
+//     }
+//     catch(error) {
+//         console.log("Error at fetching account", error)
+//         return NextResponse.json({status: 400},{statusText: 'Error Profile Fetching'})
+//     }
+// }
