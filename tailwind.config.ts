@@ -163,7 +163,287 @@ const config: Config = {
             foreground: "#F1FEF1"
           }
         }
-      }
+      },
+      fall: {
+        colors: {
+          background: "#FFF8DE",
+          primary: {
+            100: "#F8EBDF",
+            200: "#F1D4C1",
+            300: "#D5AA95",
+            400: "#AC7B6C",
+            500: "#76453B",
+            600: "#65302B",
+            700: "#541E1D",
+            800: "#441215",
+            900: "#380B11",
+            DEFAULT: "#76453B",
+            foreground: "#F7F7F7"
+          },
+          secondary: {
+            100: "#FCEBCB",
+            200: "#FAD399",
+            300: "#F0B065",
+            400: "#E18D3E",
+            500: "#CD5C08",
+            600: "#B04405",
+            700: "#933104",
+            800: "#762002",
+            900: "#621401",
+            DEFAULT: "#CD5C08",
+            foreground: "#F7F7F7"
+          },
+          danger: {
+            100: "#FFEDE3",
+            200: "#FFD7C9",
+            300: "#FFBCAE",
+            400: "#FFA299",
+            500: "#FF7878",
+            600: "#DB5763",
+            700: "#B73C51",
+            800: "#932642",
+            900: "#7A1739",
+            DEFAULT: "#FF7878",
+            foreground: "#FDB49C"
+          },
+          warning: {
+            100: "#FFFAE0",
+            200: "#FFF4C1",
+            300: "#FFECA3",
+            400: "#FFE58C",
+            500: "#FFD966",
+            600: "#DBB34A",
+            700: "#B78F33",
+            800: "#936E20",
+            900: "#7A5613",
+            DEFAULT: "#FFD966",
+            foreground: "#FFFAE0"
+          },
+          success: {
+            100: "#F1FEF1",
+            200: "#E4FDE6",
+            300: "#D5FADC",
+            400: "#C8F6D5",
+            500: "#B5F1CC",
+            600: "#84CFA8",
+            700: "#5BAD8B",
+            800: "#398B71",
+            900: "#227361",
+            DEFAULT: "#B5F1CC",
+            foreground: "#F1FEF1"
+          }
+        }
+      },
+      summer: {
+        colors: {
+          background: "#FFEEE5",
+          primary: {
+           100: "#FFEEE5",
+           200: "#FFD9CC",
+           300: "#FFBFB2",
+           400: "#FFA79F",
+           500: "#FF8080",
+           600: "#DB5D68",
+           700: "#B74055",
+           800: "#932844",
+           900: "#7A183A",
+            DEFAULT: "#FF8080",
+            foreground: "#F7F7F7"
+          },
+          secondary: {
+            100: "#FFF8E2",
+            200: "#FFF0C5",
+            300: "#FFE6A9",
+            400: "#FFDC93",
+            500: "#FFCC70",
+            600: "#DBA551",
+            700: "#B78038",
+            800: "#935F23",
+            900: "#7A4715",
+            DEFAULT: "#FFCC70",
+            foreground: "#EAFDF9"
+          },
+          danger: {
+            100: "#FFEDE3",
+            200: "#FFD7C9",
+            300: "#FFBCAE",
+            400: "#FFA299",
+            500: "#FF7878",
+            600: "#DB5763",
+            700: "#B73C51",
+            800: "#932642",
+            900: "#7A1739",
+            DEFAULT: "#FF7878",
+            foreground: "#FDB49C"
+          },
+          warning: {
+            100: "#FFFAE0",
+            200: "#FFF4C1",
+            300: "#FFECA3",
+            400: "#FFE58C",
+            500: "#FFD966",
+            600: "#DBB34A",
+            700: "#B78F33",
+            800: "#936E20",
+            900: "#7A5613",
+            DEFAULT: "#FFD966",
+            foreground: "#FFFAE0"
+          },
+          success: {
+            100: "#F1FEF1",
+            200: "#E4FDE6",
+            300: "#D5FADC",
+            400: "#C8F6D5",
+            500: "#B5F1CC",
+            600: "#84CFA8",
+            700: "#5BAD8B",
+            800: "#398B71",
+            900: "#227361",
+            DEFAULT: "#B5F1CC",
+            foreground: "#F1FEF1"
+          }
+        }
+      },
+      winter: {
+        colors: {
+          background: "#ECFCFE",
+          primary: {
+            100: "#ECFCFE",
+            200: "#D9F7FD",
+            300: "#C5EEF9",
+            400: "#B4E1F3",
+            500: "#9AD0EC",
+            600: "#70A6CA",
+            700: "#4D7EA9",
+            800: "#315A88",
+            900: "#1D3F71",
+            DEFAULT: "#9AD0EC",
+            foreground: "#F7F7F7"
+          },
+          secondary: {
+            100: "#FDF6F5",
+            200: "#FCECEB",
+            300: "#F6DEDF",
+            400: "#EED1D4",
+            500: "#E3BEC6",
+            600: "#C38A9C",
+            700: "#A35F7B",
+            800: "#833C60",
+            900: "#6C244F",
+            DEFAULT: "#E3BEC6",
+            foreground: "#EAFDF9"
+          },
+          danger: {
+            100: "#FFEDE3",
+            200: "#FFD7C9",
+            300: "#FFBCAE",
+            400: "#FFA299",
+            500: "#FF7878",
+            600: "#DB5763",
+            700: "#B73C51",
+            800: "#932642",
+            900: "#7A1739",
+            DEFAULT: "#FF7878",
+            foreground: "#FDB49C"
+          },
+          warning: {
+            100: "#FFFAE0",
+            200: "#FFF4C1",
+            300: "#FFECA3",
+            400: "#FFE58C",
+            500: "#FFD966",
+            600: "#DBB34A",
+            700: "#B78F33",
+            800: "#936E20",
+            900: "#7A5613",
+            DEFAULT: "#FFD966",
+            foreground: "#FFFAE0"
+          },
+          success: {
+            100: "#F1FEF1",
+            200: "#E4FDE6",
+            300: "#D5FADC",
+            400: "#C8F6D5",
+            500: "#B5F1CC",
+            600: "#84CFA8",
+            700: "#5BAD8B",
+            800: "#398B71",
+            900: "#227361",
+            DEFAULT: "#B5F1CC",
+            foreground: "#F1FEF1"
+          }
+        }
+      },
+      spring: {
+        colors: {
+          background: "#F9FEEF",
+          primary: {
+           100: "#F9FEEF",
+           200: "#F1FDDF",
+           300: "#E6FBCD",
+           400: "#DAF8BF",
+           500: "#C9F4AA",
+           600: "#9BD17C",
+           700: "#71AF55",
+           800: "#4B8D36",
+           900: "#307520",
+            DEFAULT: "#C9F4AA",
+            foreground: "#F7F7F7"
+          },
+          secondary: {
+            100: "#F1FEF1",
+            200: "#E4FDE6",
+            300: "#D5FADC",
+            400: "#C8F6D5",
+            500: "#B5F1CC",
+            600: "#84CFA8",
+            700: "#5BAD8B",
+            800: "#398B71",
+            900: "#227361",
+            DEFAULT: "#B5F1CC",
+            foreground: "#EAFDF9"
+          },
+          danger: {
+            100: "#FFEDE3",
+            200: "#FFD7C9",
+            300: "#FFBCAE",
+            400: "#FFA299",
+            500: "#FF7878",
+            600: "#DB5763",
+            700: "#B73C51",
+            800: "#932642",
+            900: "#7A1739",
+            DEFAULT: "#FF7878",
+            foreground: "#FDB49C"
+          },
+          warning: {
+            100: "#FFFAE0",
+            200: "#FFF4C1",
+            300: "#FFECA3",
+            400: "#FFE58C",
+            500: "#FFD966",
+            600: "#DBB34A",
+            700: "#B78F33",
+            800: "#936E20",
+            900: "#7A5613",
+            DEFAULT: "#FFD966",
+            foreground: "#FFFAE0"
+          },
+          success: {
+            100: "#F1FEF1",
+            200: "#E4FDE6",
+            300: "#D5FADC",
+            400: "#C8F6D5",
+            500: "#B5F1CC",
+            600: "#84CFA8",
+            700: "#5BAD8B",
+            800: "#398B71",
+            900: "#227361",
+            DEFAULT: "#B5F1CC",
+            foreground: "#F1FEF1"
+          }
+        }
+      },
     }
   })],
 
