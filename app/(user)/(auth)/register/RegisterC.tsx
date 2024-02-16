@@ -95,7 +95,7 @@ export default function RegisterClient() {
     <div className='p-4 mt:2 w-full flex flex-col items-center gap-4 justify-center'>
       <div className='text-center '>
         <h1 className='text-2xl lg:text-5xl'>Register an Account</h1>
-        <p>To prevent stealing content you need an Account see my Data Visualization, Graphic Design, and UI/UX. If you don't want this please email me.</p>
+        <p>To prevent stealing content you need an Account see my Data Visualization, Graphic Design, and UI/UX. If you dont want this please email me.</p>
       </div>
       <div className='max-w-sm w-full md:w-1/2 p-8 border-2 border-primary-500 rounded-lg shadow-lg shadow-secondary-400'>
         <div className='flex flex-col gap-4'>
