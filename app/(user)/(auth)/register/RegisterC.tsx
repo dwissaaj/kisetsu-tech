@@ -39,7 +39,7 @@ export default function RegisterClient() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     setIsData({ ...isData, [name]: value })
-    console.log(isData)
+
 
   }
 
@@ -54,7 +54,7 @@ export default function RegisterClient() {
         try {
           const user = await account.create(ID.unique(), isData.email, isData.password, isData.name)
           if(user) {
-            router.push('/account')
+            router.push('/login')
           }
 
         }

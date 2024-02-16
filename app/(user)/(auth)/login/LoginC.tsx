@@ -42,30 +42,43 @@ export default function LoginClient() {
       const isVal = await loginSchema.isValid(isData)
       if(isVal == true) {
         try{
-          const session = await account.createEmailSession(isData.email, isData.password)
-      
-          if(session) {
+          const getSession = await account.createEmailSession(isData.email, isData.password)
+          // const cookies = await fetch('/api/user/session',{
+          //   method: 'POST',
+          //   headers: {
+          //     "Content-Type": "application/json",
+          //   },
+          //   body: JSON.stringify(getSession)
+          // })
+          // console.log(cookies)
+          // console.log(getSession)
+          if(getSession) {
             router.push('/account')
           }
         }
         catch(e: any) {
           setIsError({...isError, isLoading: false})
-          console.log(Object.keys(e))
-          console.log(Object.values(e))
-          if(e.code === 404) {
+          if(e.code == 404) {
             setIsError((prev) => ({
               ...prev,
-              isNameError: true,
-              nameErrorMessage: 'No Account Detected please register'
+              isEmailError: true,
+              emailErrorMessage: 'No Account Detected please register'
             }))
           }
-          else if(e.code === 401) {
+          else if(e.code  == 401) {
             setIsError((prev) => ({
               ...prev,
-              isNameError: true,
-              nameErrorMessage: 'Wrong Password or Email please check again'
+              isPasswordError: true,
+              passwordErrorMessage: 'Wrong Password or Email please check again'
             }))
           }
+          else (
+            setIsError((prev) => ({
+              ...prev,
+              isEmailError: true,
+              passwordErrorMessage: 'Something is wrong try again later'
+            }))
+          )
         }
       }
     }

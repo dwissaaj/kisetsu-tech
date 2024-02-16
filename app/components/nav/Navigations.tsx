@@ -9,6 +9,7 @@ import {  useState } from "react";
 import { ThemeSwitcher } from "@/app/components/ThemeSwitcher";
 import { KisetsuLogo } from "@/app/components/brand/KisetsuLogo";
 import InputUI from "@/app/components/input/Input";
+import { SixThemeSwitcher } from "../sixThemeSwitcher";
 export default function Navigations() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -48,7 +49,7 @@ export default function Navigations() {
       </NavbarContent>
       <NavbarContent justify="end">
       <NavbarItem>
-          <ThemeSwitcher />
+          <SixThemeSwitcher />
         </NavbarItem>
         <NavbarItem className="hidden md:flex">
           <MdSubMenuAccount />

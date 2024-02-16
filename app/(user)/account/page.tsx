@@ -1,7 +1,9 @@
 import React from 'react'
+import ClientAccunt from './clientAccount'
 
-export default function page() {
+export default async function Account() {
+
   return (
-    <div>This is Your Account</div>
+    <ClientAccunt />
   )
 }
