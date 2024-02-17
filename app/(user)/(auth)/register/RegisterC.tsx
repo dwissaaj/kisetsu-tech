@@ -25,6 +25,10 @@ export default function RegisterClient() {
     email: '',
     name: ''
   })
+  const [isProfile, setIsProfile] = useState({
+    name: '',
+    email: ''
+  })
   const [isError, setIsError] = useState({
     isEmailError: false,
     isPasswordError: false,
@@ -38,6 +42,7 @@ export default function RegisterClient() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
+    setIsProfile({ ...isProfile, [name]: value })
     setIsData({ ...isData, [name]: value })
 
 
@@ -54,8 +59,22 @@ export default function RegisterClient() {
         try {
           const user = await account.create(ID.unique(), isData.email, isData.password, isData.name)
           if(user) {
-            router.push('/login')
+           try {
+            await fetch('/api/user/profile',{
+              method: 'POST',
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(isProfile)
+            })
+             
+              router.push('/login')
+           }
+           catch(error) {
+            console.log(error)
           }
+          }
+          
 
         }
         catch (error: any) {

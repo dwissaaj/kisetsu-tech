@@ -52,8 +52,9 @@ export default function LoginClient() {
           // })
           // console.log(cookies)
           // console.log(getSession)
+          
           if(getSession) {
-            router.push('/account')
+            router.push('/verification')
           }
         }
         catch(e: any) {

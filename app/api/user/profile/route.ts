@@ -1,22 +1,34 @@
 import { ID, account, database } from '@/app/appwrite'
+import { Permission, Role } from 'appwrite'
 import { NextResponse } from 'next/server'
 export async function POST(request: Request){
     const res = await request.json()
+    console.log(res)
     try {
         const data =  await database.createDocument(
-            process.env.NEXT_DATABASE_ID as string,
-            process.env.NEXT_COLLECTION_ID as string,
+            process.env.NEXT_PUBLIC_DATABASE_ID as string,
+            process.env.NEXT_PUBLIC_COLLECTION_ID as string,
             ID.unique(),
             {
-                res
-            }
+                name: res.name,
+                email: res.email
+            },
+            [
+                Permission.create(Role.any()),
+                Permission.read(Role.any()),
+                Permission.delete(Role.any()),
+                Permission.update(Role.any()),
+            ]
         )
         console.log(res)
+        console.log(data)
         console.log('success')
         return NextResponse.json({message: data}, {status: 200})
     }
     catch(error){
-        console.log(error)
+        console.log(res)
+
+        return NextResponse.json({message: error}, {status: 400})
     }
 }
 // export async function GET(){
