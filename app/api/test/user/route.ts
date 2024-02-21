@@ -1,7 +1,15 @@
+import { account } from "@/app/appwrite"
 import { NextResponse } from "next/server"
 
 export async function GET(){
-  return NextResponse.json({message: 'aCCEPTED'})
+  try {
+    const user = await account.get()
+    console.log('currently logged in ', user)
+    return NextResponse.json({data: user})
+  }
+  catch(err){
+    return NextResponse.json({statusText: 'Error'}, {statusText: 'Err'})
+  }
 }
 
 export async function POST(request: Request) {

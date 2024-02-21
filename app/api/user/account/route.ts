@@ -4,6 +4,6 @@ import { cookies } from 'next/headers'
 
 export async function GET(){
  const getAccount = await account.get()
- return NextResponse.json({getAccount})
+ return NextResponse.json({getAccount},{status: 200})
 }
   

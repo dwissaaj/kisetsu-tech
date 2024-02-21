@@ -43,18 +43,16 @@ export default function LoginClient() {
       if(isVal == true) {
         try{
           const getSession = await account.createEmailSession(isData.email, isData.password)
-          // const cookies = await fetch('/api/user/session',{
-          //   method: 'POST',
-          //   headers: {
-          //     "Content-Type": "application/json",
-          //   },
-          //   body: JSON.stringify(getSession)
-          // })
-          // console.log(cookies)
-          // console.log(getSession)
-          
+          const cookies = await fetch('/api/user/session',{
+            method: 'POST',
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(getSession)
+          })
+          console.log(getSession)
           if(getSession) {
-            router.push('/verification')
+            router.push('/account')
           }
         }
         catch(e: any) {

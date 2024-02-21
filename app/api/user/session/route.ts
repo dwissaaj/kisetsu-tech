@@ -22,12 +22,25 @@ export async function POST(request: Request) {
 
   }
 
+// export async function GET() {
+//     try {
+//     const cookiesStore = cookies()
+//     const userId = cookiesStore.get('userId')
+//     const email  = cookiesStore.get('email')
+//     let userS  ={
+//         userId: userId,
+//         email: email
+//     }
+//     return NextResponse.json({userS})
+//     }
+//     catch(error) {
+//         return NextResponse.json({message: 'Error at get cookies user and email'})
+//     }
+// }
+
 export async function GET() {
-    try {
-    const user = await account.get()
-    return NextResponse.json({user})
-    }
-    catch(error) {
-        return NextResponse.json({message: 'eror'})
-    }
+    const cookiesStore = cookies()
+    const sessionId = cookiesStore.get('')
+    console.log(sessionId) 
+    return sessionId
 }
