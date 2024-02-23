@@ -31,7 +31,7 @@ export default function LoginClient() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     setIsData({ ...isData, [name]: value })
-    console.log(isData)
+   
 
   }
   const handleLogin = async () => {
@@ -43,7 +43,7 @@ export default function LoginClient() {
       if(isVal == true) {
         try{
           const getSession = await account.createEmailSession(isData.email, isData.password)
-          const cookies = await fetch('/api/user/session',{
+           await fetch('/api/user/session',{
             method: 'POST',
             headers: {
               "Content-Type": "application/json",

@@ -12,7 +12,6 @@ export async function POST(request: Request) {
             httpOnly: true,
             maxAge: 60 * 60 * 24 * 7
         })
-        console.log(res)
     return NextResponse.json({message: 'success'} , {status: 200})
 
     }

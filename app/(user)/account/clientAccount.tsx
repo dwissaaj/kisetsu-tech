@@ -4,34 +4,25 @@ import useSWR from 'swr'
 import { request } from 'graphql-request'
 import { account } from '@/app/appwrite'
 import { getProfile } from '@/app/utils/get-profile'
-
-// const getUserhandle = async () => {
-//   try {
-//     const user = await account.get()
-//     console.log(user)
-//     return user
-//   }
-//   catch(error) {
-//     console.log(error)
-//   }
-// }
+import { Tab, Tabs } from '@nextui-org/react'
+import { usePathname } from 'next/navigation'
+import Profile from './profile/clientProfile'
+import SignOut from './signout/clientSignOut'
 export default function ClientAccunt() {
-  const fetcher = (url: string) => fetch(url).then((res) => res.json());
-
-  const response = getProfile()
-  console.log('the user client', response)
-
+  const pathname = usePathname()
   return (
-    <div className='w-full flex flex-col mt-8 justify-center items-center'>
-      <section>
-        {/* <h1>Welcome {data?.userS?.email?.value}</h1> */}
-      </section>
-      <div className='flex flex-col gap-2 justify-start items-start'>
-        <div>
-          <p>Your Name</p>
-          <p>Dwis</p>
-        </div>
-      </div>
+    <div className='w-full h-lvh flex flex-col mt-8 mb-42 items-center'>
+      <Tabs color='primary' variant='bordered' aria-label='options account'>
+        <Tab className='w-3/4 h-full' key={'account'}  title='Account'>
+          <Profile />
+        </Tab>
+        <Tab className='w-3/4  h-full' key={'signout'} title='Sign Out' >
+          <SignOut />
+        </Tab>
+        <Tab className='w-3/4' isDisabled key={'preference'} title='Preference'>
+          Preference
+        </Tab>
+      </Tabs>
     </div>
   )
 }
