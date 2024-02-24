@@ -4,7 +4,7 @@ import { Input, Button } from '@nextui-org/react'
 import { EmailIcon } from '../../../components/icon/EmailIcon'
 import { PasswordIcon } from '../../../components/icon/PasswordIcon';
 import { PasswordHideIcon } from '../../../components/icon/PasswordHideIcon';
-import { account, ID } from '@/app/appwrite'
+import { account, ID, database } from '@/app/appwrite'
 import { object, string } from 'yup';
 import { PersonIcon } from '../../../components/icon/account/PersonIcon';
 import { useRouter } from 'next/navigation';
@@ -59,14 +59,29 @@ export default function RegisterClient() {
       if (isVal == true) {
         try {
           const user = await account.create(ID.unique(), isData.email, isData.password, isData.name)
-          console.log('success profile', isProfile)
+     
+          console.log('user is', user)
           if (user) {
-            router.push('/login')
-
-
+            try {
+              const promise = await database.createDocument(
+                process.env.NEXT_PUBLIC_DATABASE_ID as string,
+                process.env.NEXT_PUBLIC_COLLECTION_ID as string,
+                ID.unique(),
+                {
+                  userId: user.$id,
+                  email: user.email
+                }
+              )
+              console.log('returned', promise)
+              console.log('request data is', isData)
+              if(promise) {
+                router.push('/login')
+              }
+            }
+            catch(error) {
+              console.log(error)
+            }
           }
-
-
         }
         catch (error: any) {
           setIsError({ ...isError, isLoading: false })

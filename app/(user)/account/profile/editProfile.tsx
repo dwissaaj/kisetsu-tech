@@ -10,6 +10,7 @@ export default function ModalProfile() {
   })
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
+    console.log(isData)
     setIsData({ ...isData, [name]: value })
    
 
@@ -21,9 +22,13 @@ export default function ModalProfile() {
         process.env.NEXT_PUBLIC_COLLECTION_ID as string,
         ID.unique(),
         {
-          isData
+          fullName: isData.fullName,
+          occupation: isData.occupation,
+          org: isData.org
         }
       )
+      console.log('returned', promise)
+      console.log('request data is', isData)
     }
     catch(error) {
       console.log(error)
@@ -46,14 +51,14 @@ export default function ModalProfile() {
          value={isData.fullName} />
 
 
-        <Input 
-         name='occupation '
-         id='occupation '
+      <Input 
+         name='occupation'
+         id='occupation'
          variant='bordered' 
          onChange={handleChange}
          color='primary' 
          type="text" 
-         label="Occupation "
+         label="Occupation"
          value={isData.occupation} />
 
 

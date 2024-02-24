@@ -2,14 +2,14 @@
 import React from 'react'
 import useSWR from 'swr'
 import { request } from 'graphql-request'
-import { account } from '@/app/appwrite'
+import { account, database } from '@/app/appwrite'
 import { getProfile } from '@/app/utils/get-profile'
 import { Tab, Tabs } from '@nextui-org/react'
 import { usePathname } from 'next/navigation'
 import Profile from './profile/clientProfile'
 import SignOut from './signout/clientSignOut'
 export default function ClientAccunt() {
-  const pathname = usePathname()
+
   return (
     <div className='w-full h-lvh flex flex-col mt-8 mb-42 items-center'>
       <Tabs color='primary' variant='bordered' aria-label='options account'>

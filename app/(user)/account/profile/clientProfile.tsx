@@ -3,20 +3,20 @@ import { useDisclosure, Modal, ModalBody, ModalFooter, Button, Card, CardBody, C
 import React from 'react'
 import NextImage from "next/image";
 import ProfileCard from './profileCard';
-import ModalProfile from './modalProfile';
+import ModalProfile from './editProfile';
 
 export default function Profile() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   return (
     <div className='w-full h-1/2'>
-      <Card>
+      <Card className='h-full'>
         <CardHeader>Your Profile</CardHeader>
         <CardBody className=''>
           <div>
             <Card isBlurred>
-              <CardBody className='w-full items-center gap-2'>
+              <CardBody className=' items-center gap-2'>
                 <Image width={300} height={300} as={NextImage} alt="NextUI hero Image" src='/home/1.png' />
-                <ProfileCard fullName='test' age={20} email='ads' org='org' job='job' />
+                <ProfileCard fullName='test' email='ads' company='org' occupation='job' />
               </CardBody>
             </Card>
 
