@@ -1,7 +1,7 @@
 'use client'
 import React, {useState} from 'react'
 import { Button, Input } from '@nextui-org/react'
-import { ID, database } from '@/app/appwrite'
+import { ID, database } from '@/app/utils/client/appwrite'
 export default function ModalProfile() {
   const [isData, setIsData] = useState({
     fullName: '',

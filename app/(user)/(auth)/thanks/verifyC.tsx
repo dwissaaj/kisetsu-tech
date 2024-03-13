@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Button, Spinner } from '@nextui-org/react'
-import { account } from '@/app/appwrite'
+import { account } from '@/app/utils/client/appwrite'
 import { useRouter } from 'next/navigation';
 export default function CallBackVerify() {
     const searchParams = useSearchParams()

@@ -1,5 +1,5 @@
 
-import { account } from '@/app/appwrite'
+import { account } from '@/app/utils/client/appwrite'
 import { cookies } from 'next/headers'
 import { NextResponse } from 'next/server'
 export async function POST(request: Request) {
@@ -39,7 +39,8 @@ export async function POST(request: Request) {
 
 export async function GET() {
     const cookiesStore = cookies()
-    const sessionId = cookiesStore.get('')
-    console.log(sessionId) 
-    return sessionId
+    const sessionId = cookiesStore.get('userId')
+    const userId = sessionId?.value
+    console.log(userId)
+    return Response.json(userId)
 }

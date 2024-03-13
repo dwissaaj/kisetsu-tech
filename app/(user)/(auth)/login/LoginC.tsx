@@ -5,7 +5,7 @@ import { EmailIcon } from '../../../components/icon/EmailIcon'
 import { PasswordIcon } from '../../../components/icon/PasswordIcon';
 import { PasswordHideIcon } from '../../../components/icon/PasswordHideIcon';
 import { Input, Button } from '@nextui-org/react'
-import { account } from '@/app/appwrite';
+import { account } from '@/app/utils/client/appwrite';
 import { useRouter } from 'next/navigation';
 
 export default function LoginClient() {

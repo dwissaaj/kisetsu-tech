@@ -1,4 +1,4 @@
-import { account } from "@/app/appwrite";
+import { account } from "@/app/utils/client/appwrite";
 import { NextResponse } from "next/server";
 import { cookies } from 'next/headers'
 

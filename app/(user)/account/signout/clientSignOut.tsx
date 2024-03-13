@@ -1,4 +1,4 @@
-import { account } from '@/app/appwrite'
+import { account } from '@/app/utils/client/appwrite'
 import { DeleteSession } from '@/app/utils/user/delete-session'
 import { Button, Card, CardBody, CardFooter, CardHeader, Divider } from '@nextui-org/react'
 import { cookies } from 'next/headers'

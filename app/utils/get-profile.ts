@@ -1,4 +1,4 @@
-import { account } from "../appwrite";
+import { account } from "./client/appwrite";
 
 export async function getProfile() {
     try {
